@@ -12,12 +12,12 @@ const Navbar = () => {
   return (
     <nav aria-label="main mailbox folders">
     <List>
-      <NavbarItem title='Profile' icon={<PersonIcon />}/>
-      <NavbarItem title='News' icon={<FeedIcon />}/>
-      <NavbarItem title='Friends' icon={<GroupIcon />}/>
-      <NavbarItem title='Messages' icon={<MailIcon />}/>
-      <NavbarItem title='Music' icon={<MusicNoteIcon />}/>
-      <NavbarItem title='Settings' icon={<SettingsIcon />}/>
+      <NavbarItem title='Profile' icon={<PersonIcon />} link='/profile'/>
+      <NavbarItem title='News' icon={<FeedIcon />} link='/feed'/>
+      <NavbarItem title='Friends' icon={<GroupIcon />} link='/friends'/>
+      <NavbarItem title='Messages' icon={<MailIcon />} link='/dialogs'/>
+      <NavbarItem title='Music' icon={<MusicNoteIcon />} link='/music'/>
+      <NavbarItem title='Settings' icon={<SettingsIcon />} link='/settings'/>
     </List>
   </nav>
   )

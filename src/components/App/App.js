@@ -5,11 +5,11 @@ import Content from '../Content/Content';
 
 const App = () => {
   return (
-    <>
-      <CssBaseline />
-      <Header />
-      <Content />
-    </>
+      <>
+        <CssBaseline />
+        <Header />
+        <Content />
+      </>
   )
 }
 

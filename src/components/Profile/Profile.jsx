@@ -1,6 +1,7 @@
 import React from 'react'
 import Avatar from '@mui/material/Avatar'
 import avatar from './../../img/Avatar.jpg'
+import MyPosts from '../MyPosts/MyPosts'
 
 const Profile = () => {
   return (
@@ -18,6 +19,7 @@ const Profile = () => {
         <br/>
         <span>Age: </span> 36
       </div>
+      <MyPosts />
     </>
   )
 }
