@@ -6,7 +6,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import GroupIcon from '@mui/icons-material/Group';
 import MusicNoteIcon from '@mui/icons-material/MusicNote';
 import SettingsIcon from '@mui/icons-material/Settings';
-import NavbarItem from '../../UI/NavbarItem/NavbarItem';
+import NavbarItem from '../UI/NavbarItem/NavbarItem';
 
 const Navbar = () => {
   return (
