@@ -3,7 +3,7 @@ import { ListItem, ListItemIcon, ListItemButton, ListItemText } from '@mui/mater
 
 const NavbarItem = ({icon, title}) => {
   return (
-    <ListItem disablePadding>
+    <ListItem disablePadding dense>
       <ListItemButton>
         <ListItemIcon>
           {icon}

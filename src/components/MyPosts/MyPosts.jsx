@@ -15,7 +15,7 @@ const MyPosts = () => {
         }}
       >
         <TextField 
-          fullWidth 
+          sx={{width: '100%'}}
           multiline='true' 
           label="New Post" 
           id="newPostArea" />

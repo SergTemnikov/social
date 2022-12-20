@@ -6,8 +6,8 @@ import ThumbDownIcon from '@mui/icons-material/ThumbDown'
 const PostItem = ({ text, likes, dislikes }) => {
   return (
     <Box maxWidth='sm'>
-      <Paper sx={{ marginTop: '5px', padding: '5px' }} >
-        <Typography sx={{ marginBottom: '5px', fontWeight: 'bold' }}>{text}</Typography>
+      <Box sx={{ marginTop: '5px', padding: '5px' }} >
+        <Typography variant='h6' sx={{ marginBottom: '5px' }}>{text}</Typography>
         <Box sx={{display: 'flex'}}>
           <Box sx={{ display: 'flex', alignContent: 'center' }}>
             {likes} <ThumbUpIcon sx={{ marginLeft: '5px' }} color='success' />
@@ -16,7 +16,7 @@ const PostItem = ({ text, likes, dislikes }) => {
             {dislikes} <ThumbDownIcon sx={{ marginLeft: '5px' }} color='error' />
           </Box>
         </Box>
-      </Paper>
+      </Box>
     </Box>
   )
 }
