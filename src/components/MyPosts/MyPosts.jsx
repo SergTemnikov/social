@@ -16,7 +16,7 @@ const MyPosts = () => {
       >
         <TextField 
           sx={{width: '100%'}}
-          multiline='true' 
+          multiline={true}
           label="New Post" 
           id="newPostArea" />
         <Stack 
