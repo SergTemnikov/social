@@ -8,16 +8,24 @@ import MusicNoteIcon from '@mui/icons-material/MusicNote';
 import SettingsIcon from '@mui/icons-material/Settings';
 import NavbarItem from '../UI/NavbarItem/NavbarItem';
 
+const navbarItems = [
+  {id: 1, title: 'Profile', icon: <PersonIcon />, path: '/profile'},
+  {id: 2, title: 'News', icon: <FeedIcon />, path: '/feed'},
+  {id: 3, title: 'Friends', icon: <GroupIcon />, path: '/friends'},
+  {id: 4, title: 'Messages', icon: <MailIcon />, path: '/dialogs'},
+  {id: 5, title: 'Music', icon: <MusicNoteIcon />, path: '/music'},
+  {id: 6, title: 'Settings', icon: <SettingsIcon />, path: '/settings'}
+]
+
 const Navbar = () => {
   return (
     <nav aria-label="main mailbox folders">
     <List>
-      <NavbarItem title='Profile' icon={<PersonIcon />} link='/profile'/>
-      <NavbarItem title='News' icon={<FeedIcon />} link='/feed'/>
-      <NavbarItem title='Friends' icon={<GroupIcon />} link='/friends'/>
-      <NavbarItem title='Messages' icon={<MailIcon />} link='/dialogs'/>
-      <NavbarItem title='Music' icon={<MusicNoteIcon />} link='/music'/>
-      <NavbarItem title='Settings' icon={<SettingsIcon />} link='/settings'/>
+      {navbarItems.map(item => {
+        return (
+          <NavbarItem key={item.id} title={item.title} icon={item.icon} link={item.path}/>
+        )
+      })}
     </List>
   </nav>
   )
