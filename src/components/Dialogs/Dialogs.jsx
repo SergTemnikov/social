@@ -17,7 +17,7 @@ const Dialogs = () => {
               })}
             </List>
           </Grid>
-          <Grid item xs={9}>Messages</Grid>
+          <Grid item xs={9}>Messages list</Grid>
         </Grid>
       </Box>
     </>
