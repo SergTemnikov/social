@@ -3,7 +3,6 @@ import { Box, Grid, List } from '@mui/material'
 import PersonIcon from '@mui/icons-material/Person'
 import DialogItem from '../UI/DialogItem/DialogItem'
 import MessageItem from '../UI/MessageItem/MessageItem'
-import { NavLink } from 'react-router-dom'
 
 const dialogItems = [
   { id: 1, name: 'Andrew' },
@@ -20,6 +19,7 @@ const messages = [
   { id: 3, messageText: 'I am Okay' },
   { id: 4, messageText: 'Wanna see u soon, bro' },
   { id: 5, messageText: 'Tryin to become fantastic developer' },
+  { id: 5, messageText: 'Tryin to become fantastic teamlead' }
 ]
 
 const Dialogs = () => {
@@ -31,9 +31,7 @@ const Dialogs = () => {
             <List dense>
               {dialogItems.map(item => {
                 return (
-                  <NavLink to={'/dialogs/' + item.id} key={item.id}>
-                    <DialogItem name={item.name} icon={<PersonIcon />} />
-                  </NavLink>
+                  <DialogItem name={item.name} icon={<PersonIcon />} />
                 )
               })}
             </List>

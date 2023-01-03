@@ -1,14 +1,14 @@
 import React from 'react'
 import CssBaseline from '@mui/material/CssBaseline';
 import Header from '../Header/Header';
-import AppWrapper from '../AppWrapper/AppWrapper';
+import ContentWrapper from '../ContentWrapper/ContentWapper';
 
 const App = () => {
   return (
       <>
         <CssBaseline />
         <Header />
-        <AppWrapper />
+        <ContentWrapper />
       </>
   )
 }
