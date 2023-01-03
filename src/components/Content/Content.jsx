@@ -1,22 +1,29 @@
+import { Box, Container } from '@mui/material'
 import React from 'react'
-import { Box, Grid, Container } from '@mui/material'
-import Navbar from './../Navbar/Navbar'
-import ContentInfo from '../ContentInfo/ContentInfo';
+import { Route, Routes } from 'react-router-dom'
+import Dialogs from '../Dialogs/Dialogs'
+import Feed from '../Feed/Feed'
+import Friends from '../Friends/Friends'
+import Music from '../Music/Music'
+import Profile from '../Profile/Profile'
+import Settings from '../Settings/Settings'
 
 const Content = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Container>
-        <Grid container spacing={2}>
-          <Grid item xs={2}>
-           <Navbar />
-          </Grid>
-          <Grid item xs={10}>
-           <ContentInfo />
-          </Grid>
-        </Grid>
-      </Container>
-    </Box>
+    <>
+      <Box sx={{ margin: '10px' }}>
+        <Container>
+          <Routes>
+            <Route path='/profile' element={<Profile />} />
+            <Route path='/feed' element={<Feed />} />
+            <Route path='/dialogs' element={<Dialogs />} />
+            <Route path='/friends' element={<Friends />} />
+            <Route path='/music' element={<Music />} />
+            <Route path='/settings' element={<Settings />} />
+          </Routes>
+        </Container>
+      </Box>
+    </>
   )
 }
 
