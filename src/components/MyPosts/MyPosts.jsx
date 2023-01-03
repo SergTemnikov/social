@@ -3,6 +3,9 @@ import { Box, TextField, Button, Stack } from '@mui/material'
 import SendIcon from '@mui/icons-material/Send'
 import PostItem from '../UI/PostItem/PostItem'
 
+const postText = 'Id like to know much more about React. And I like any other ui libraries like Ant-Design, Material UI, Tailwind CSS'
+
+
 const MyPosts = () => {
   return (
     <>
@@ -29,8 +32,8 @@ const MyPosts = () => {
           </Button>
         </Stack>
       </Box>
-      <PostItem text='Post 1' likes='14' dislikes='3'/>
-      <PostItem text='Post 2' likes='3' dislikes='1'/>
+      <PostItem text='Hello, World!' likes='14' dislikes='3'/>
+      <PostItem text={postText} likes='3' dislikes='1'/>
     </>
   )
 }
