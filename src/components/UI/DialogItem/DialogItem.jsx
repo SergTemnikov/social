@@ -9,8 +9,7 @@ const DialogItem = ({ icon, name }) => {
           {icon}
         </Avatar>
       </ListItemAvatar>
-      <ListItemText
-        primary={name}
+      <ListItemText primary={name}
       />
     </ListItem>
   )

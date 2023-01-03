@@ -3,8 +3,9 @@ import { Box, Grid, List } from '@mui/material'
 import PersonIcon from '@mui/icons-material/Person'
 import DialogItem from '../UI/DialogItem/DialogItem'
 import MessageItem from '../UI/MessageItem/MessageItem'
+import { NavLink } from 'react-router-dom'
 
-const dialogItems = [
+let dialogItems = [
   { id: 1, name: 'Andrew' },
   { id: 2, name: 'Alex' },
   { id: 3, name: 'Svetlana' },
@@ -13,14 +14,28 @@ const dialogItems = [
   { id: 6, name: 'Mary' }
 ]
 
-const messages = [
+let messages = [
   { id: 1, messageText: 'Hello' },
   { id: 2, messageText: 'How are u, buddy?' },
   { id: 3, messageText: 'I am Okay' },
   { id: 4, messageText: 'Wanna see u soon, bro' },
   { id: 5, messageText: 'Tryin to become fantastic developer' },
-  { id: 5, messageText: 'Tryin to become fantastic teamlead' }
+  { id: 6, messageText: 'Tryin to become fantastic teamlead' }
 ]
+
+let dialogsList = dialogItems.map(item => {
+  return (
+    <NavLink key={item.id} to={'/dialogs/' + item.id}>
+      <DialogItem name={item.name} icon={<PersonIcon />} />
+    </NavLink>
+  )
+})
+
+let messagesList = messages.map(m => {
+  return (
+    <MessageItem key={m.id} message={m.messageText} />
+  )
+})
 
 const Dialogs = () => {
   return (
@@ -29,21 +44,13 @@ const Dialogs = () => {
         <Grid container spacing={2}>
           <Grid item xs={3}>
             <List dense>
-              {dialogItems.map(item => {
-                return (
-                  <DialogItem name={item.name} icon={<PersonIcon />} />
-                )
-              })}
+              {dialogsList}
             </List>
           </Grid>
           <Grid item xs={9}>
             <Box>
               <List>
-                {messages.map(m => {
-                  return (
-                    <MessageItem key={m.id} message={m.messageText} />
-                  )
-                })}
+                {messagesList}
               </List>
             </Box>
           </Grid>
