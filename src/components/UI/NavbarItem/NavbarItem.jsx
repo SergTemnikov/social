@@ -2,9 +2,16 @@ import React from 'react'
 import { ListItem, ListItemIcon, ListItemButton, ListItemText } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 
+let activeStyle = {
+  color: "#0288d1"
+}
+
 const NavbarItem = ({ icon, title, link }) => {
   return (
-    <NavLink to={link} style={{textDecoration: 'none', color: 'inherit'}}>
+    <NavLink
+      to={link}
+      style={({ isActive }) => isActive ? activeStyle : undefined}
+    >
       <ListItem disablePadding dense>
         <ListItemButton>
           <ListItemIcon>

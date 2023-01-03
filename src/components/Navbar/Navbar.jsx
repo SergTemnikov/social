@@ -17,6 +17,8 @@ const navbarItems = [
   {id: 6, title: 'Settings', icon: <SettingsIcon />, path: '/settings'}
 ]
 
+const activeClass = {color: 'red'}
+
 const Navbar = () => {
   return (
     <nav aria-label="main mailbox folders">
