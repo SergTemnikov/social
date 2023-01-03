@@ -3,7 +3,7 @@ import Avatar from '@mui/material/Avatar'
 import avatar from './../../img/Avatar.jpg'
 import MyPosts from '../MyPosts/MyPosts'
 
-const Profile = () => {
+const Profile = ({posts}) => {
   return (
     <>
       <div>
@@ -19,7 +19,7 @@ const Profile = () => {
         <br/>
         <span>Age: </span> 36
       </div>
-      <MyPosts />
+      <MyPosts posts={posts}/>
     </>
   )
 }

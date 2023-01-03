@@ -4,12 +4,12 @@ import Header from '../Header/Header';
 import ContentWrapper from '../ContentWrapper/ContentWapper';
 import './../../css/theme.css'
 
-const App = () => {
+const App = ({posts, dialogs, messages}) => {
   return (
       <>
         <CssBaseline />
         <Header />
-        <ContentWrapper />
+        <ContentWrapper posts={posts} dialogs={dialogs} messages={messages}/>
       </>
   )
 }
