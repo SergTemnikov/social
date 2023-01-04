@@ -1,4 +1,5 @@
 const ADD_POST = 'ADD-POST'
+const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE'
 
 let store = {
   _state: {
@@ -17,14 +18,7 @@ let store = {
         { id: 5, name: 'Margarita' },
         { id: 6, name: 'Mary' }
       ],
-      messages: [
-        { id: 1, messageText: 'Hello' },
-        { id: 2, messageText: 'How are u, buddy?' },
-        { id: 3, messageText: 'I am Okay' },
-        { id: 4, messageText: 'Wanna see u soon, bro' },
-        { id: 5, messageText: 'Tryin to become fantastic developer' },
-        { id: 6, messageText: 'Tryin to become fantastic teamlead' }
-      ]
+      messages: []
     },
     friendsPage: {
       friends: [
@@ -40,16 +34,6 @@ let store = {
   _callSubscriber() {
     console.log(this._state.profilePage.posts)
   },
-  addPost(postText) {
-    let newPost = {
-      id: 3,
-      text: postText,
-      likes: 0,
-      dislikes: 0
-    }
-    this._state.profilePage.posts.push(newPost)
-    this._callSubscriber(this._state)
-  },
   subscribe(observer) {
     this._callSubscriber = observer
   },
@@ -63,11 +47,19 @@ let store = {
       }
       this._state.profilePage.posts.push(newPost)
       this._callSubscriber(this._state)
+    } else if (action.type === ADD_NEW_MESSAGE) {
+      let newMessage = {
+        id: 1,
+        messageText: action.body
+      }
+      this._state.messagesPage.messages.push(newMessage)
+      this._callSubscriber(this._state)
     }
   }
 }
 
 export const addPostAC = (body) => ({type: ADD_POST, body})
+export const addNewMessageAC = (body) => ({type: ADD_NEW_MESSAGE, body})
 
 
 export default store

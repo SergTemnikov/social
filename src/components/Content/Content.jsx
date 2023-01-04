@@ -23,7 +23,8 @@ const Content = (props) => {
             <Route path='/dialogs' element={
               <Dialogs
                 dialogs={props.state.messagesPage.dialogs}
-                messages={props.state.messagesPage.messages} />} />
+                messages={props.state.messagesPage.messages}
+                dispatch={props.dispatch} />} />
             <Route path='/friends' element={<Friends friends={props.state.friendsPage.friends}/>}
             />
             <Route path='/music' element={<Music />} />
