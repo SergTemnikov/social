@@ -17,7 +17,7 @@ const Content = (props) => {
             <Route path='/profile' element={
               <Profile
                 posts={props.state.profilePage.posts}
-                addPost={props.addPost}/>}
+                dispatch={props.dispatch}/>}
             />
             <Route path='/feed' element={<Feed />} />
             <Route path='/dialogs' element={

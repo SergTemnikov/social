@@ -2,14 +2,15 @@ import React, { useState } from 'react'
 import { Box, TextField, Button, Stack } from '@mui/material'
 import SendIcon from '@mui/icons-material/Send'
 import PostItem from '../UI/PostItem/PostItem'
+import { addPostAC } from '../../redux/state'
 
-const MyPosts = ({ posts, addPost }) => {
+const MyPosts = ({ posts, dispatch }) => {
 
   let [newPost, setNewPost] = useState('')
 
   let addNewPost = (e) => {
     e.preventDefault()
-    addPost(newPost)
+    dispatch(addPostAC(newPost))
   }
 
   let postsList = posts.map(post => {
