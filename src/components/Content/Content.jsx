@@ -8,16 +8,24 @@ import Music from '../Music/Music'
 import Profile from '../Profile/Profile'
 import Settings from '../Settings/Settings'
 
-const Content = ({posts, dialogs, messages}) => {
+const Content = (props) => {
   return (
     <>
       <Box sx={{ margin: '10px' }}>
         <Container>
           <Routes>
-            <Route path='/profile' element={<Profile posts={posts}/>} />
+            <Route path='/profile' element={
+              <Profile
+                posts={props.state.profilePage.posts}
+                addPost={props.state.addPost}/>}
+            />
             <Route path='/feed' element={<Feed />} />
-            <Route path='/dialogs' element={<Dialogs dialogs={dialogs} messages={messages}/>} />
-            <Route path='/friends' element={<Friends />} />
+            <Route path='/dialogs' element={
+              <Dialogs
+                dialogs={props.state.messagesPage.dialogs}
+                messages={props.state.messagesPage.messages} />} />
+            <Route path='/friends' element={<Friends friends={props.state.friendsPage.friends}/>}
+            />
             <Route path='/music' element={<Music />} />
             <Route path='/settings' element={<Settings />} />
           </Routes>

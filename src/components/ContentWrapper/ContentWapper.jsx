@@ -3,7 +3,7 @@ import { Box, Grid, Container } from '@mui/material'
 import Navbar from '../Navbar/Navbar'
 import Content from '../Content/Content';
 
-const AppWrapper = ({posts, dialogs, messages}) => {
+const AppWrapper = (props) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Container>
@@ -12,7 +12,7 @@ const AppWrapper = ({posts, dialogs, messages}) => {
            <Navbar />
           </Grid>
           <Grid item xs={10}>
-           <Content posts={posts} dialogs={dialogs} messages={messages}/>
+           <Content {...props}/>
           </Grid>
         </Grid>
       </Container>
