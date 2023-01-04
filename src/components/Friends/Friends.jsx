@@ -6,7 +6,7 @@ const Friends = ({friends}) => {
   return (
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       {friends.map(friend => {
-        return <FriendItem name={friend.name} avatar={friend.avatar} info={friend.info}/>
+        return <FriendItem key={friend.id} name={friend.name} avatar={friend.avatar} info={friend.info}/>
       })}
     </List>
   )
