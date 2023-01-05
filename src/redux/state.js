@@ -1,5 +1,5 @@
-const ADD_POST = 'ADD-POST'
-const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE'
+import dialogsReducer from "./dialogs-reducer"
+import profileReducer from "./profile-reducer"
 
 let store = {
   _state: {
@@ -38,28 +38,14 @@ let store = {
     this._callSubscriber = observer
   },
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      let newPost = {
-        id: 3,
-        text: action.body,
-        likes: 0,
-        dislikes: 0
-      }
-      this._state.profilePage.posts.push(newPost)
-      this._callSubscriber(this._state)
-    } else if (action.type === ADD_NEW_MESSAGE) {
-      let newMessage = {
-        id: 1,
-        messageText: action.body
-      }
-      this._state.messagesPage.messages.push(newMessage)
-      this._callSubscriber(this._state)
-    }
+    this._state.profilePage = profileReducer(this._state.profilePage, action)
+    this._state.messagesPage = dialogsReducer(this._state.messagesPage, action)
+    this._callSubscriber(this._state)
   }
 }
 
-export const addPostAC = (body) => ({type: ADD_POST, body})
-export const addNewMessageAC = (body) => ({type: ADD_NEW_MESSAGE, body})
+
+
 
 
 export default store

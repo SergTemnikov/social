@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Box, TextField, Button, Stack } from '@mui/material'
 import SendIcon from '@mui/icons-material/Send'
 import PostItem from '../UI/PostItem/PostItem'
-import { addPostAC } from '../../redux/state'
+import { addPostAC } from '../../redux/profile-reducer'
 
 const MyPosts = ({ posts, dispatch }) => {
 

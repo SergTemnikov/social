@@ -5,7 +5,7 @@ import DialogItem from '../UI/DialogItem/DialogItem'
 import MessageItem from '../UI/MessageItem/MessageItem'
 import { NavLink } from 'react-router-dom'
 import SendIcon from '@mui/icons-material/Send'
-import { addNewMessageAC } from '../../redux/state'
+import { addNewMessageAC } from '../../redux/dialogs-reducer'
 
 const Dialogs = ({ dialogs, messages, dispatch }) => {
 
@@ -39,10 +39,10 @@ const Dialogs = ({ dialogs, messages, dispatch }) => {
           </List>
         </Grid>
         <Grid item xs={9}>
-          <List sx={{minHeight: '300px'}}>
+          <List sx={{height: '18rem'}}>
             {messagesList}
           </List>
-          <Box>
+          <Box sx={{height: '10%'}}>
             <Grid container spacing={4} alignItems='center'>
               <Grid item xs={9}>
                 <TextField
