@@ -2,15 +2,25 @@ import React, { useState } from 'react'
 import { Box, TextField, Button, Stack } from '@mui/material'
 import SendIcon from '@mui/icons-material/Send'
 import PostItem from '../UI/PostItem/PostItem'
-import { addPostAC } from '../../redux/profile-reducer'
+import { useSelector, useDispatch } from 'react-redux'
+import { addPost } from '../../redux/profileSlice'
+// import { addPostAC } from '../../redux/profileSlice'
 
-const MyPosts = ({ posts, dispatch }) => {
+const MyPosts = () => {
+  const posts = useSelector((state) => state.profile.profilePage.posts)
+  const dispatch = useDispatch()
 
-  let [newPost, setNewPost] = useState('')
+  let [newPostText, setNewPostText] = useState('')
 
   let addNewPost = (e) => {
     e.preventDefault()
-    dispatch(addPostAC(newPost))
+    let newPost = {
+      id: Date.now(),
+      text: newPostText,
+      likes: 0,
+      dislikes: 0
+    }
+    dispatch(addPost(newPost))
   }
 
   let postsList = posts.map(post => {
@@ -32,8 +42,8 @@ const MyPosts = ({ posts, dispatch }) => {
         <TextField
           sx={{ width: '100%' }}
           multiline={true}
-          value={newPost}
-          onChange={e => setNewPost(e.target.value)}
+          value={newPostText}
+          onChange={e => setNewPostText(e.target.value)}
           label="New Post"
           id="newPostArea" />
         <Stack
