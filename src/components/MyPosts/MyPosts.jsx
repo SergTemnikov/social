@@ -21,6 +21,7 @@ const MyPosts = () => {
       dislikes: 0
     }
     dispatch(addPost(newPost))
+    setNewPostText('')
   }
 
   let postsList = posts.map(post => {

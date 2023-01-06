@@ -16,8 +16,9 @@ const Dialogs = () => {
 
   let addNewMessage = (e) => {
     e.preventDefault()
-    let newMessage = { id: 1, messageText: message }
+    let newMessage = { id: Date.now(), messageText: message }
     dispatch(addMessage(newMessage))
+    setMessage('')
   }
 
   let dialogsList = dialogs.map(item => {
