@@ -14,17 +14,12 @@ const Content = (props) => {
       <Box sx={{ margin: '10px' }}>
         <Container>
           <Routes>
-            <Route path='/profile' element={<Profile/>}/>
-            {/* <Route path='/feed' element={<Feed />} />
-            <Route path='/dialogs' element={
-              <Dialogs
-                dialogs={props.state.messagesPage.dialogs}
-                messages={props.state.messagesPage.messages}
-                dispatch={props.dispatch} />} />
-            <Route path='/friends' element={<Friends friends={props.state.friendsPage.friends}/>}
-            />
+            <Route path='/profile' element={<Profile />} />
+            <Route path='/feed' element={<Feed />} />
+            <Route path='/dialogs' element={<Dialogs />} />
+            <Route path='/friends' element={<Friends />} />
             <Route path='/music' element={<Music />} />
-            <Route path='/settings' element={<Settings />} /> */}
+            <Route path='/settings' element={<Settings />} />
           </Routes>
         </Container>
       </Box>

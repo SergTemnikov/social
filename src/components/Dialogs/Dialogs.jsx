@@ -5,15 +5,19 @@ import DialogItem from '../UI/DialogItem/DialogItem'
 import MessageItem from '../UI/MessageItem/MessageItem'
 import { NavLink } from 'react-router-dom'
 import SendIcon from '@mui/icons-material/Send'
-import { addNewMessageAC } from '../../redux/dialogs-reducer'
+import { useSelector, useDispatch } from 'react-redux'
+import { addMessage } from '../../redux/dialogsSlice'
 
-const Dialogs = ({ dialogs, messages, dispatch }) => {
-
+const Dialogs = () => {
+  let dialogs = useSelector(state => state.dialogs.messagesPage.dialogs)
   let [message, setMessage] = useState('')
+  let messages = useSelector(state => state.dialogs.messagesPage.messages)
+  let dispatch = useDispatch()
 
   let addNewMessage = (e) => {
     e.preventDefault()
-    dispatch(addNewMessageAC(message))
+    let newMessage = { id: 1, messageText: message }
+    dispatch(addMessage(newMessage))
   }
 
   let dialogsList = dialogs.map(item => {
@@ -25,9 +29,7 @@ const Dialogs = ({ dialogs, messages, dispatch }) => {
   })
 
   let messagesList = messages.map(m => {
-    return (
-      <MessageItem key={m.id} message={m.messageText} />
-    )
+    return <MessageItem key={m.id} message={m.messageText} />
   })
 
   return (
@@ -39,10 +41,10 @@ const Dialogs = ({ dialogs, messages, dispatch }) => {
           </List>
         </Grid>
         <Grid item xs={9}>
-          <List sx={{height: '18rem'}}>
+          <List sx={{ height: '18rem' }}>
             {messagesList}
           </List>
-          <Box sx={{height: '10%'}}>
+          <Box sx={{ height: '10%' }}>
             <Grid container spacing={4} alignItems='center'>
               <Grid item xs={9}>
                 <TextField
