@@ -13,12 +13,7 @@ const MyPostsContainer = () => {
     )
   })
 
-  return (
-    <MyPosts
-      postsList={postsList}
-      dispatch={dispatch}
-    />
-  )
+  return <MyPosts postsList={postsList} dispatch={dispatch} />
 }
 
 export default MyPostsContainer

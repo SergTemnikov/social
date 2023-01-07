@@ -15,11 +15,7 @@ const Siderbar = () => {
       icon={<AccessibilityNewTwoToneIcon />} />
   })
 
-  return (
-    <div>
-      {adsList}
-    </div>
-  )
+  return <>{adsList}</>
 }
 
 export default Siderbar

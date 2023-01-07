@@ -1,8 +1,8 @@
 import React from 'react'
 import { Box, Grid, Container } from '@mui/material'
-import Navbar from '../Navbar/Navbar'
 import Content from '../Content/Content';
 import Siderbar from '../Sidebar/Siderbar';
+import NavbarContainer from '../Navbar/NavbarContainer';
 
 const AppWrapper = () => {
   return (
@@ -10,7 +10,7 @@ const AppWrapper = () => {
       <Container>
         <Grid container spacing={2}>
           <Grid item xs={2}>
-            <Navbar />
+            <NavbarContainer />
           </Grid>
           <Grid item xs={7}>
             <Content />
