@@ -8,7 +8,7 @@ import Music from '../Music/Music'
 import Profile from '../Profile/Profile'
 import Settings from '../Settings/Settings'
 
-const Content = (props) => {
+const Content = () => {
   return (
     <>
       <Box sx={{ margin: '10px' }}>

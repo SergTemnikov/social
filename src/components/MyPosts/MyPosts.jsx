@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Box, TextField, Button, Stack } from '@mui/material'
+import { Box, TextField, Button, Stack, Divider } from '@mui/material'
 import SendIcon from '@mui/icons-material/Send'
 import { addPost } from '../../redux/profileSlice'
 
-const MyPosts = ({postsList, dispatch}) => {
+const MyPosts = ({ postsList, dispatch }) => {
 
   let [newPostText, setNewPostText] = useState('')
 
@@ -21,16 +21,9 @@ const MyPosts = ({postsList, dispatch}) => {
 
   return (
     <>
-      <Box
-        component='form'
-        sx={{
-          width: 500,
-          maxWidth: '100%',
-          marginTop: '20px',
-        }}
-      >
+      <Box component='form' sx={{ marginTop: '20px', }}>
         <TextField
-          sx={{ width: '100%' }}
+          fullWidth
           multiline={true}
           value={newPostText}
           onChange={e => setNewPostText(e.target.value)}
@@ -45,8 +38,10 @@ const MyPosts = ({postsList, dispatch}) => {
             Add post
           </Button>
         </Stack>
+        <Divider sx={{marginTop: '20px'}}/>
       </Box>
       {postsList}
+      
     </>
   )
 }

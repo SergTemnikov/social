@@ -4,13 +4,13 @@ import Header from '../Header/Header';
 import ContentWrapper from '../ContentWrapper/ContentWapper';
 import './../../css/theme.css'
 
-const App = (props) => {
+const App = () => {
   return (
-      <>
-        <CssBaseline />
-        <Header />
-        <ContentWrapper {...props}/>
-      </>
+    <>
+      <CssBaseline />
+      <Header />
+      <ContentWrapper />
+    </>
   )
 }
 

@@ -1,13 +1,13 @@
 import React from 'react'
-import { Box, Paper, Typography } from '@mui/material'
+import { Box, Typography, Card } from '@mui/material'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp'
 import ThumbDownIcon from '@mui/icons-material/ThumbDown'
 
 const PostItem = ({ text, likes, dislikes }) => {
   return (
-    <Box maxWidth='sm'>
+    <Card sx={{margin: '10px 0 10px 0', backgroundColor: '#e6f2ff'}}>
       <Box sx={{ marginTop: '5px', padding: '5px' }} >
-        <Typography variant='h6' sx={{ marginBottom: '5px' }}>{text}</Typography>
+        <Typography variant='p' sx={{ marginBottom: '5px' }}>{text}</Typography>
         <Box sx={{display: 'flex'}}>
           <Box sx={{ display: 'flex', alignContent: 'center' }}>
             {likes} <ThumbUpIcon sx={{ marginLeft: '5px' }} color='success' />
@@ -17,7 +17,7 @@ const PostItem = ({ text, likes, dislikes }) => {
           </Box>
         </Box>
       </Box>
-    </Box>
+    </Card>
   )
 }
 
