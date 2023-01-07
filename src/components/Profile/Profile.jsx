@@ -1,7 +1,7 @@
 import React from 'react'
 import Avatar from '@mui/material/Avatar'
 import avatar from './../../img/Avatar.jpg'
-import MyPosts from '../MyPosts/MyPosts'
+import MyPostsContainer from '../MyPosts/MyPostsContainer'
 
 const Profile = (props) => {
   return (
@@ -19,7 +19,7 @@ const Profile = (props) => {
         <br/>
         <span>Age: </span> 36
       </div>
-      <MyPosts {...props}/>
+      <MyPostsContainer {...props}/>
     </>
   )
 }

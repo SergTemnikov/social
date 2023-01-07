@@ -1,14 +1,9 @@
 import React, { useState } from 'react'
 import { Box, TextField, Button, Stack } from '@mui/material'
 import SendIcon from '@mui/icons-material/Send'
-import PostItem from '../UI/PostItem/PostItem'
-import { useSelector, useDispatch } from 'react-redux'
 import { addPost } from '../../redux/profileSlice'
-// import { addPostAC } from '../../redux/profileSlice'
 
-const MyPosts = () => {
-  const posts = useSelector((state) => state.profile.profilePage.posts)
-  const dispatch = useDispatch()
+const MyPosts = ({postsList, dispatch}) => {
 
   let [newPostText, setNewPostText] = useState('')
 
@@ -23,12 +18,6 @@ const MyPosts = () => {
     dispatch(addPost(newPost))
     setNewPostText('')
   }
-
-  let postsList = posts.map(post => {
-    return (
-      <PostItem key={post.id} text={post.text} likes={post.likes} dislikes={post.dislikes} />
-    )
-  })
 
   return (
     <>
