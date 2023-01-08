@@ -7,6 +7,7 @@ import Friends from '../Friends/Friends'
 import Music from '../Music/Music'
 import Profile from '../Profile/Profile'
 import Settings from '../Settings/Settings'
+import Users from '../Users/Users'
 
 const Content = () => {
   return (
@@ -20,6 +21,7 @@ const Content = () => {
             <Route path='/friends' element={<Friends />} />
             <Route path='/music' element={<Music />} />
             <Route path='/settings' element={<Settings />} />
+            <Route path='/users' element={<Users />} />
           </Routes>
         </Container>
       </Box>

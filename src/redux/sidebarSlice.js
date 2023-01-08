@@ -11,7 +11,9 @@ const initialState = {
 export const sidebarSlice = createSlice({
   name: 'sidebar',
   initialState,
-  reducers: {}
+  reducers: {
+    default: (state) => {return state}
+  }
 })
 
 export default sidebarSlice.reducer

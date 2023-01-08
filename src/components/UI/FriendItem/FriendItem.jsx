@@ -13,7 +13,7 @@ const FriendItem = ({ avatar, name, info }) => {
           secondary={info}
           secondaryTypographyProps={{ color: info === 'online' ? 'green' : 'inherit' }} />
       </ListItem>
-      <Divider variant="inset" component="li" />
+      <Divider />
     </>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { ListItem, ListItemIcon, ListItemButton, ListItemText } from '@mui/material';
+import { ListItem, ListItemIcon, ListItemButton, ListItemText, Divider } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 
 let activeStyle = {
@@ -20,6 +20,7 @@ const NavbarItem = ({ icon, title, link }) => {
           <ListItemText color='inherit' primary={title} />
         </ListItemButton>
       </ListItem>
+      <Divider />
     </NavLink>
   )
 }

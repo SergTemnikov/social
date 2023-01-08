@@ -20,7 +20,8 @@ export const dialogsSlice = createSlice({
   reducers: {
     addMessage: (state, action) => {
       state.messagesPage.messages.push(action.payload)
-    }
+    },
+    default: (state) => {return state}
   }
 })
 
