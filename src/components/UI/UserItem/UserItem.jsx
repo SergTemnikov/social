@@ -1,7 +1,8 @@
 import React from 'react'
-import { ListItem, ListItemAvatar, Avatar, ListItemText, Divider, Button, Box } from '@mui/material'
+import { ListItem, ListItemAvatar, Avatar, ListItemText, Divider, Button } from '@mui/material'
 import AddIcon from '@mui/icons-material/Add'
 import RemoveIcon from '@mui/icons-material/Remove'
+// import PersonIcon from '@mui/icons-material/Person'
 
 const UserItem = ({ users, followUser, unfollowUser }) => {
   return (
@@ -12,7 +13,7 @@ const UserItem = ({ users, followUser, unfollowUser }) => {
             <div key={user.id}>
               <ListItem key={user.id}>
                 <ListItemAvatar>
-                  <Avatar src={user.photos.small ? user.photos.small : undefined} />
+                  <Avatar src={user.photos.small} />
                 </ListItemAvatar>
                 <ListItemText
                   primary={user.name}

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
-import { List } from '@mui/material'
+import { List, ListItem, Typography } from '@mui/material'
 import { follow, unfollow, setAllUsers } from '../../redux/allUsersSlice'
 import UserItem from '../UI/UserItem/UserItem'
 
@@ -21,9 +21,10 @@ const Users = () => {
   const setUsers = (allUsers) => {
     dispatch(setAllUsers(allUsers))
   }
-  //   axios.get('https://social-network.samuraijs.com/api/1.0/users')
-  //  .then(res => {
-  //     // console.log(users)
+  // axios.get('https://jsonplaceholder.typicode.com/users')
+  //   .then(res => {
+  //     setUsers(res.data)
+  //     console.log(res.data);
   //   })
 
   return (
