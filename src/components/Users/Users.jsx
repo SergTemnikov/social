@@ -1,13 +1,13 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
-import { List, ListItem, Typography } from '@mui/material'
+import { List } from '@mui/material'
 import { follow, unfollow, setAllUsers } from '../../redux/allUsersSlice'
 import UserItem from '../UI/UserItem/UserItem'
 
 const Users = () => {
 
-  const users = useSelector(state => state.allUsers.allUsers)
+  let users = useSelector(state => state.allUsers.allUsers)
   const dispatch = useDispatch()
 
   const followUser = (userId) => {
@@ -21,19 +21,35 @@ const Users = () => {
   const setUsers = (allUsers) => {
     dispatch(setAllUsers(allUsers))
   }
-  // axios.get('https://jsonplaceholder.typicode.com/users')
-  //   .then(res => {
-  //     setUsers(res.data)
-  //     console.log(res.data);
-  //   })
+
+  if (users.length === 0) {
+    axios.get('https://social-network.samuraijs.com/api/1.0/users')
+      .then(res => {
+        setUsers(res.data.items)
+      })
+  }
 
   return (
     <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
-      <UserItem
-        users={users}
-        followUser={followUser}
-        unfollowUser={unfollowUser} />
+      {users.map(user => {
+        return <UserItem
+          keyId={user.id}
+          user={user}
+          followUser={followUser}
+          unfollowUser={unfollowUser} />
+      })}
     </List>
+
+    // <>
+    // {users.map(u => {
+    //   return <div key={u.id}>
+    //     <img src={u.photos.small} alt="" />
+    //     <p>{u.name}</p>
+    //     <p>u.name</p>
+    //     <p>u.name</p>
+    //   </div>
+    // })}
+    // </>
   )
 }
 
