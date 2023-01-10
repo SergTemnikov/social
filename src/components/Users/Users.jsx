@@ -33,7 +33,7 @@ const Users = () => {
     <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
       {users.map(user => {
         return <UserItem
-          keyId={user.id}
+          key={user.id}
           user={user}
           followUser={followUser}
           unfollowUser={unfollowUser} />
