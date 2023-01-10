@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import { List } from '@mui/material'
@@ -22,12 +22,16 @@ const Users = () => {
     dispatch(setAllUsers(allUsers))
   }
 
-  if (users.length === 0) {
-    axios.get('https://social-network.samuraijs.com/api/1.0/users')
-      .then(res => {
-        setUsers(res.data.items)
-      })
-  }
+  useEffect(
+    () => {
+      if (users.length === 0) {
+        axios.get('https://social-network.samuraijs.com/api/1.0/users')
+          .then(res => {
+            setUsers(res.data.items)
+          })
+      }
+    }
+  )
 
   return (
     <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
@@ -39,17 +43,6 @@ const Users = () => {
           unfollowUser={unfollowUser} />
       })}
     </List>
-
-    // <>
-    // {users.map(u => {
-    //   return <div key={u.id}>
-    //     <img src={u.photos.small} alt="" />
-    //     <p>{u.name}</p>
-    //     <p>u.name</p>
-    //     <p>u.name</p>
-    //   </div>
-    // })}
-    // </>
   )
 }
 

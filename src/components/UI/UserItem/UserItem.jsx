@@ -27,7 +27,6 @@ const UserItem = ({ user, followUser, unfollowUser }) => {
             variant='contained'
             color='success'
             size='small'
-            sx={{ display: 'flex', alignItems: 'center' }}
             onClick={() => followUser(user.id)}
             endIcon={<AddIcon />}>
             Add
@@ -37,7 +36,5 @@ const UserItem = ({ user, followUser, unfollowUser }) => {
     </>
   )
 }
-
-
 
 export default UserItem
