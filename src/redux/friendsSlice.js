@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
+  friendsPage: {
     friends: []
+  }
 }
 
 export const friendsSlice = createSlice({

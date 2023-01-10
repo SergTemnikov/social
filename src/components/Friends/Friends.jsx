@@ -9,7 +9,7 @@ const Friends = () => {
   let users = useSelector(state => state.allUsers.allUsers)
   let friends = users.filter(u => u.followed === true)
 
-  useEffect(() => { }, [friends])
+  useEffect(() => {}, [friends])
 
   return (
     <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
@@ -18,7 +18,7 @@ const Friends = () => {
           key={friend.id}
           avatar={friend.photos.small ? friend.photos.small : MockAvatar}
           name={friend.name}
-          info={friend.status}
+          info={friend.status ? friend.status : 'Online'}
         />
       })}
     </List>

@@ -11,7 +11,7 @@ const FriendItem = ({ avatar, name, info }) => {
         <ListItemText
           primary={name}
           secondary={info}
-          secondaryTypographyProps={{ color: 'green' }} />
+          secondaryTypographyProps={{ color: 'Online' ? 'Green' : 'inherit' }} />
       </ListItem>
       <Divider />
     </>

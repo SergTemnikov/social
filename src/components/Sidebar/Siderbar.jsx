@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import SidebarItem from '../UI/SidebarItem/SidebarItem'
 import AccessibilityNewTwoToneIcon from '@mui/icons-material/AccessibilityNewTwoTone'
+import SidebarFriends from '../OnlineFriends/OnlineFriends'
 
 const Siderbar = () => {
 
@@ -15,7 +16,12 @@ const Siderbar = () => {
       icon={<AccessibilityNewTwoToneIcon />} />
   })
 
-  return <>{adsList}</>
+  return (
+    <>
+      <SidebarFriends />
+      {adsList}
+    </>
+  )
 }
 
 export default Siderbar
