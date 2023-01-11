@@ -32,24 +32,24 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
   },
 }))
 
+const limitStr = (str, n, symb) => {
+  if (!n && !symb) return str;
+  symb = symb || '...';
+  return str.substr(0, n - symb.length) + symb;
+}
+
 const OnlineFriendItem = ({ icon, name }) => {
   return (
-    <Box sx={{ margin: '12px 0 12px 0' }}>
-      <AvatarGroup max={3}>
-        <Box sx={{ textAlign: 'center' }}>
-          <StyledBadge
-            overlap="circular"
-            anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-            variant="dot"
-          >
-            <Avatar alt="Remy Sharp" src={icon ? icon : MockAvatar} />
-          </StyledBadge>
-          <Typography variant="caption" display="block" sx={{ paddingTop: '4px', textOverflow: 'ellipsis' }}>
-            {name}
-          </Typography>
-        </Box>
-      </AvatarGroup>
-    </Box>
+    <Stack direction='column'>
+      <StyledBadge
+        overlap="circular"
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+        variant="dot"
+      >
+        <Avatar alt="Remy Sharp" src={icon ? icon : MockAvatar} />
+      </StyledBadge>
+      <Typography variant='caption' noWrap>{limitStr(name, 7)}</Typography>
+    </Stack>
   )
 }
 

@@ -8,6 +8,7 @@ const OnlineFriends = () => {
 
   const friendsList = useSelector(state => state.allUsers.allUsers)
   let onlineFriendsList = friendsList.filter(f => f.followed === true)
+
   let friendsRender = onlineFriendsList.map(f => {
     return <OnlineFriendItem
       key={f.id}
@@ -19,7 +20,7 @@ const OnlineFriends = () => {
   return (
     <Card sx={{ padding: '12px', margin: '10px 0 10px 0' }}>
       <Typography sx={{ paddingBottom: '10px', color: 'Green' }} align='right'>Online friends</Typography>
-      <Stack direction="row" spacing={2}>
+      <Stack direction="row" spacing={2} sx={{display: 'flex', gap: '0 10px', justifyContent: 'center'}}>
         {onlineFriendsList.length !== 0
           ? friendsRender
           : <Typography>No online friends</Typography>
