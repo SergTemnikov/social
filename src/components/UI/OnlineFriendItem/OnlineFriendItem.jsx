@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Typography, Badge, Avatar, Stack, AvatarGroup } from '@mui/material'
+import { Typography, Badge, Avatar, Stack } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import MockAvatar from './../../../img/MockAvatar.jpg'
 
