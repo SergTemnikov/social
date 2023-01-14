@@ -29,13 +29,13 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
       transform: 'scale(2.4)',
       opacity: 0,
     },
-  },
+  }
 }))
 
 const limitStr = (str, n, symb) => {
   if (!n && !symb) return str;
   symb = symb || '...';
-  return str.substr(0, n - symb.length) + symb;
+  return str.substr(0, n - symb.length) + symb
 }
 
 const OnlineFriendItem = ({ icon, name }) => {
