@@ -2,8 +2,9 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
   allUsers: [],
-  pageSize: 5,
-  totalUsersCount: 0
+  pageSize: 10,
+  totalUsersCount: 0,
+  currentPage: 1
 }
 
 const allUsersSlice = createSlice({
@@ -33,13 +34,25 @@ const allUsersSlice = createSlice({
     setAllUsers: (state, action) => {
       return {
         ...state,
-        allUsers: [...state.allUsers, ...action.payload]
+        allUsers: [...action.payload]
+      }
+    },
+    setTotalUsersCount: (state, action) => {
+      return {
+        ...state,
+        totalUsersCount: action.payload
+      }
+    },
+    setCurrentPage: (state, action) => {
+      return {
+        ...state,
+        currentPage: action.payload
       }
     },
     default: (state) => { return state }
   }
 })
 
-export const { follow, unfollow, setAllUsers } = allUsersSlice.actions
+export const { follow, unfollow, setAllUsers, setCurrentPage, setTotalUsersCount } = allUsersSlice.actions
 
 export default allUsersSlice.reducer
