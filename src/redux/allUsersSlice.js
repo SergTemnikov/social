@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
   allUsers: [],
-  pageSize: 10,
+  pageSize: 7,
   totalUsersCount: 0,
   currentPage: 1
 }
@@ -53,6 +53,11 @@ const allUsersSlice = createSlice({
   }
 })
 
-export const { follow, unfollow, setAllUsers, setCurrentPage, setTotalUsersCount } = allUsersSlice.actions
+export const { 
+  follow, 
+  unfollow, 
+  setAllUsers, 
+  setCurrentPage, 
+  setTotalUsersCount } = allUsersSlice.actions
 
 export default allUsersSlice.reducer

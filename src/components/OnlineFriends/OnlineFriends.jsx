@@ -15,6 +15,7 @@ const OnlineFriends = () => {
       key={f.id}
       icon={f.photos.small}
       name={f.name}
+      marginBottom={onlineFriendsList.length > 4 ? '20px' : null}
     />
   })
 
@@ -32,7 +33,7 @@ const OnlineFriends = () => {
       <Stack
         direction="row"
         spacing={2}
-        sx={{ display: 'flex', gap: '0 10px', justifyContent: 'center' }}>
+        sx={{ display: 'flex', gap: '0 10px', overflowX: 'scroll' }}>
         {onlineFriendsList.length !== 0
           ? friendsRender
           : <Typography>No online friends</Typography>

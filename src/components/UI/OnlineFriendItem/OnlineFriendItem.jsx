@@ -38,9 +38,9 @@ const limitStr = (str, n, symb) => {
   return str.substr(0, n - symb.length) + symb
 }
 
-const OnlineFriendItem = ({ icon, name }) => {
+const OnlineFriendItem = ({ icon, name, marginBottom }) => {
   return (
-    <Stack direction='column'>
+    <Stack direction='column' sx={{marginBottom: marginBottom}}>
       <StyledBadge
         overlap="circular"
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setCurrentPage, setTotalUsersCount } from '../../redux/allUsersSlice'
 import axios from 'axios'
-import { Box, Container, List, Pagination, Stack } from '@mui/material'
+import { List, Pagination, Stack } from '@mui/material'
 import { follow, unfollow, setAllUsers } from '../../redux/allUsersSlice'
 import UserItem from '../UI/UserItem/UserItem'
 
