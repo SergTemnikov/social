@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setCurrentPage, setTotalUsersCount } from '../../redux/allUsersSlice'
 import axios from 'axios'
-import { Box, List, Pagination, Stack } from '@mui/material'
+import { Box, Container, List, Pagination, Stack } from '@mui/material'
 import { follow, unfollow, setAllUsers } from '../../redux/allUsersSlice'
 import UserItem from '../UI/UserItem/UserItem'
 
@@ -51,15 +51,16 @@ const Users = () => {
             unfollowUser={unfollowUser} />
         })}
       </List>
-      <Box sx={{ textAlign: 'center' }}>
+      <Stack>
         <Pagination
           count={totalUsersCount}
           variant="outlined"
           shape="rounded"
           defaultPage={1}
           page={currentPage}
-          onChange={onPageChanged} />
-      </Box>
+          onChange={onPageChanged}
+          sx={{ marginY: 2, marginX: 'auto' }} />
+      </Stack>
     </>
   )
 }
