@@ -40,13 +40,13 @@ const limitStr = (str, n, symb) => {
 
 const OnlineFriendItem = ({ icon, name, marginBottom }) => {
   return (
-    <Stack direction='column' sx={{marginBottom: marginBottom}}>
+    <Stack direction='column' sx={{marginBottom}}>
       <StyledBadge
         overlap="circular"
         anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
         variant="dot"
       >
-        <Avatar alt="Remy Sharp" src={icon ? icon : MockAvatar} />
+        <Avatar alt={String(name)} src={icon ? icon : MockAvatar} />
       </StyledBadge>
       <Typography variant='caption' noWrap>{limitStr(name, 7)}</Typography>
     </Stack>

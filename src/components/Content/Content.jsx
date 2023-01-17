@@ -8,6 +8,7 @@ import Music from '../Music/Music'
 import Profile from '../Profile/Profile'
 import Settings from '../Settings/Settings'
 import Users from '../Users/Users'
+import UsersContainer from '../Users/UsersContainer'
 
 const Content = () => {
   return (
@@ -21,7 +22,7 @@ const Content = () => {
             <Route path='/friends' element={<Friends />} />
             <Route path='/music' element={<Music />} />
             <Route path='/settings' element={<Settings />} />
-            <Route path='/users' element={<Users />} />
+            <Route path='/users' element={<UsersContainer />} />
           </Routes>
         </Container>
       </Box>
