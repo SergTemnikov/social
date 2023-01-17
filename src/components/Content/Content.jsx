@@ -5,9 +5,8 @@ import Dialogs from '../Dialogs/Dialogs'
 import Feed from '../Feed/Feed'
 import Friends from '../Friends/Friends'
 import Music from '../Music/Music'
-import Profile from '../Profile/Profile'
 import Settings from '../Settings/Settings'
-import Users from '../Users/Users'
+import ProfileContainer from '../Profile/ProfileContainer'
 import UsersContainer from '../Users/UsersContainer'
 
 const Content = () => {
@@ -16,7 +15,7 @@ const Content = () => {
       <Box>
         <Container>
           <Routes>
-            <Route path='/profile' element={<Profile />} />
+            <Route path='/profile' element={<ProfileContainer />} />
             <Route path='/feed' element={<Feed />} />
             <Route path='/dialogs' element={<Dialogs />} />
             <Route path='/friends' element={<Friends />} />

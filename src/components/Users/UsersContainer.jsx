@@ -12,12 +12,13 @@ import {
 import Users from './Users'
 import Loader from '../UI/Loader/Loader'
 import { Box } from '@mui/material'
+import { BASE_URL } from '../API/API-config'
 
 class UsersContainer extends React.Component {
   componentDidMount() {
     if (this.props.users.length === 0) {
       this.props.toggleIsFetching(true)
-      axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+      axios.get(`${BASE_URL}/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
         .then(res => {
           this.props.toggleIsFetching(false)
           this.props.setUsers(res.data.items)
@@ -28,7 +29,7 @@ class UsersContainer extends React.Component {
 
   onPageChanged = (_, value) => {
     this.props.toggleIsFetching(true)
-    axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${value}&count=${this.props.pageSize}`)
+    axios.get(`${BASE_URL}/users?page=${value}&count=${this.props.pageSize}`)
       .then(res => {
         this.props.toggleIsFetching(false)
         this.props.setUsers(res.data.items)

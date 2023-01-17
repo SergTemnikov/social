@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
   profilePage: {
-    posts: []
+    posts: [],
+    profile: null
   }
 }
 
@@ -13,11 +14,14 @@ export const profileSlice = createSlice({
     addPost: (state, action) => {
       state.profilePage.posts.push(action.payload)
     },
-    default: (state) => {return state}
-  }  
+    setProfile: (state, action) => {
+      return { ...state, profilePage: {...state.profilePage, profile: action.payload }}
+    },
+    default: (state) => { return state }
+  }
 })
 
-export const {addPost} = profileSlice.actions
+export const { addPost, setProfile } = profileSlice.actions
 
 export default profileSlice.reducer
 

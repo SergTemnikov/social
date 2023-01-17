@@ -4,23 +4,26 @@ import avatar from './../../img/Avatar.jpg'
 import MyPostsContainer from '../MyPosts/MyPostsContainer'
 import { Box } from '@mui/material'
 
-const Profile = () => {
+const Profile = ({ profile }) => {
+
+  const {fullName, aboutMe, photos} = profile
+
   return (
     <>
-      <Box sx={{paddingTop: '20px'}}>
-        <Avatar 
-          src={avatar}
+      <Box sx={{ paddingTop: '20px' }}>
+        <Avatar
+          src={photos.large || avatar}
           sx={{ width: 150, height: 150 }}
           alt='Avatar'
         />
-        <span style={{color: '#20df20', fontWeight: 'bold'}}>Online</span>
+        <span style={{ color: '#20df20', fontWeight: 'bold' }}>Online</span>
       </Box>
-      <div style={{marginTop: '10px'}}>
-        <span>Name: </span> Serg Temnikov
-        <br/>
-        <span>Age: </span> 36
-      </div>
-      <MyPostsContainer/>
+      <Box style={{ marginTop: '10px' }}>
+        <span>Name: </span> {fullName}
+        <br />
+        <span>About me: </span> {aboutMe}
+      </Box>
+      <MyPostsContainer />
     </>
   )
 }
