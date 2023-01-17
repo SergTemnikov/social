@@ -15,7 +15,7 @@ const OnlineFriends = () => {
       key={f.id}
       icon={f.photos.small}
       name={f.name}
-      marginBottom={onlineFriendsList.length > 4 ? '20px' : null}
+      marginBottom={onlineFriendsList.length > 4 ? '20px' : 'inherit'}
     />
   })
 
