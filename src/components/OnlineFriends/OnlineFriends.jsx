@@ -33,7 +33,7 @@ const OnlineFriends = () => {
       <Stack
         direction="row"
         spacing={2}
-        sx={{ display: 'flex', gap: '0 10px', overflowX: 'scroll' }}>
+        sx={{ display: 'flex', gap: '0 10px', overflowX: onlineFriendsList.length > 4 ? 'scroll' : 'hidden' }}>
         {onlineFriendsList.length !== 0
           ? friendsRender
           : <Typography>No online friends</Typography>

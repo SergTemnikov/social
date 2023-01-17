@@ -9,6 +9,7 @@ import {
   unfollow
 } from '../../redux/allUsersSlice'
 import Users from './Users'
+import Loader from '../UI/Loader/Loader'
 
 class UsersContainer extends React.Component {
   componentDidMount() {
@@ -32,14 +33,21 @@ class UsersContainer extends React.Component {
   render() {
 
     return (
-      <Users
-        users={this.props.users}
-        currentPage={this.props.currentPage}
-        totalUsersCount={this.props.totalUsersCount}
-        onPageChanged={this.onPageChanged}
-        followUser={this.props.followUser}
-        unfollowUser={this.props.unfollowUser}
-      />
+      <>
+        {this.props.isFetching
+          ? <Loader />
+          : <Users
+            users={this.props.users}
+            currentPage={this.props.currentPage}
+            totalUsersCount={this.props.totalUsersCount}
+            onPageChanged={this.onPageChanged}
+            followUser={this.props.followUser}
+            unfollowUser={this.props.unfollowUser}
+          />
+        }
+
+      </>
+
     )
   }
 }
@@ -49,7 +57,8 @@ const mapStateToProps = (state) => {
     users: state.allUsers.allUsers,
     pageSize: state.allUsers.pageSize,
     totalUsersCount: state.allUsers.totalUsersCount,
-    currentPage: state.allUsers.currentPage
+    currentPage: state.allUsers.currentPage,
+    isFetching: state.allUsers.isFetching
   }
 }
 

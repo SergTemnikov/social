@@ -4,7 +4,8 @@ const initialState = {
   allUsers: [],
   pageSize: 7,
   totalUsersCount: 0,
-  currentPage: 1
+  currentPage: 1,
+  isFetching: false
 }
 
 const allUsersSlice = createSlice({

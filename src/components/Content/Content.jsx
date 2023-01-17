@@ -13,7 +13,7 @@ import UsersContainer from '../Users/UsersContainer'
 const Content = () => {
   return (
     <>
-      <Box sx={{ margin: '10px' }}>
+      <Box>
         <Container>
           <Routes>
             <Route path='/profile' element={<Profile />} />
