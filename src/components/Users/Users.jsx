@@ -1,5 +1,5 @@
 import React from 'react'
-import { List, Pagination, Stack } from '@mui/material'
+import { Box, List, Pagination, Stack } from '@mui/material'
 import UserItem from '../UI/UserItem/UserItem'
 
 const Users = ({ users,
@@ -10,7 +10,7 @@ const Users = ({ users,
   unfollowUser }) => {
 
   return (
-    <>
+    <Box sx={{paddingTop: '10px'}}>
       <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
         {users.map(user => {
           return <UserItem
@@ -30,7 +30,7 @@ const Users = ({ users,
           onChange={onPageChanged}
           sx={{ marginY: 2, marginX: 'auto' }} />
       </Stack>
-    </>
+    </Box>
   )
 }
 

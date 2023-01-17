@@ -6,16 +6,20 @@ import {
   setAllUsers,
   setCurrentPage,
   setTotalUsersCount,
-  unfollow
+  unfollow,
+  toggleIsFetching
 } from '../../redux/allUsersSlice'
 import Users from './Users'
 import Loader from '../UI/Loader/Loader'
+import { Box } from '@mui/material'
 
 class UsersContainer extends React.Component {
   componentDidMount() {
     if (this.props.users.length === 0) {
+      this.props.toggleIsFetching(true)
       axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
         .then(res => {
+          this.props.toggleIsFetching(false)
           this.props.setUsers(res.data.items)
           this.props.setUsersCount(res.data.totalCount)
         })
@@ -23,17 +27,18 @@ class UsersContainer extends React.Component {
   }
 
   onPageChanged = (_, value) => {
+    this.props.toggleIsFetching(true)
     axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${value}&count=${this.props.pageSize}`)
       .then(res => {
+        this.props.toggleIsFetching(false)
         this.props.setUsers(res.data.items)
       })
     this.props.setPage(value)
   }
 
   render() {
-
     return (
-      <>
+      <Box>
         {this.props.isFetching
           ? <Loader />
           : <Users
@@ -45,9 +50,7 @@ class UsersContainer extends React.Component {
             unfollowUser={this.props.unfollowUser}
           />
         }
-
-      </>
-
+      </Box>
     )
   }
 }
@@ -62,14 +65,11 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    followUser: (userId) => dispatch(follow(userId)),
-    unfollowUser: (userId) => dispatch(unfollow(userId)),
-    setUsers: (allUsers) => dispatch(setAllUsers(allUsers)),
-    setUsersCount: (totalUsers) => dispatch(setTotalUsersCount(totalUsers)),
-    setPage: (page) => dispatch(setCurrentPage(page))
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer)
+export default connect(mapStateToProps, {
+  followUser: follow,
+  unfollowUser: unfollow,
+  setUsers: setAllUsers,
+  setUsersCount: setTotalUsersCount,
+  setPage: setCurrentPage,
+  toggleIsFetching: toggleIsFetching
+})(UsersContainer)
