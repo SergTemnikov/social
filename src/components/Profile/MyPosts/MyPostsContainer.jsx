@@ -1,5 +1,5 @@
 import React from 'react'
-import PostItem from '../UI/PostItem/PostItem'
+import PostItem from './../../UI/PostItem/PostItem'
 import { useSelector, useDispatch } from 'react-redux'
 import MyPosts from './MyPosts'
 

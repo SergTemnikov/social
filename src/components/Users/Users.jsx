@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
+import axios from 'axios'
+import { BASE_URL } from '../API/API-config'
 import { useDispatch, useSelector } from 'react-redux'
 import { setCurrentPage, setTotalUsersCount, toggleIsFetching } from '../../redux/allUsersSlice'
-import axios from 'axios'
 import { List, Pagination, Stack } from '@mui/material'
 import { follow, unfollow, setAllUsers } from '../../redux/allUsersSlice'
 import UserItem from '../UI/UserItem/UserItem'
-import { BASE_URL } from '../API/API-config'
 import Loader from './../UI/Loader/Loader'
 
 const Users = () => {
@@ -24,7 +24,7 @@ const Users = () => {
     dispatch(unfollow(userId))
   }
 
-  const onPageChanged = (e, value) => {
+  const onPageChanged = (_, value) => {
     axios.get(`${BASE_URL}/users?page=${value}&count=${pageSize}`)
       .then(res => {
         dispatch(setAllUsers(res.data.items))

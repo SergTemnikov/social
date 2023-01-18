@@ -1,25 +1,15 @@
+import { Box } from '@mui/material'
 import React from 'react'
-import Avatar from '@mui/material/Avatar'
-import avatar from './../../img/Avatar.jpg'
-import MyPostsContainer from '../MyPosts/MyPostsContainer'
+import MyPostsContainer from './MyPosts/MyPostsContainer'
+import ProfileInfo from './ProfileInfo/ProfileInfo'
 
-const Profile = () => {
+const Profile = (props) => {
   return (
     <>
-      <div>
-        <Avatar 
-          src={avatar}
-          sx={{ width: 150, height: 150 }}
-          alt='Avatar'
-        />
-        <span style={{color: '#20df20', fontWeight: 'bold'}}>Online</span>
-      </div>
-      <div style={{marginTop: '10px'}}>
-        <span>Name: </span> Serg Temnikov
-        <br/>
-        <span>Age: </span> 36
-      </div>
-      <MyPostsContainer/>
+      <Box>
+        <ProfileInfo {...props} />
+        <MyPostsContainer />
+      </Box>
     </>
   )
 }

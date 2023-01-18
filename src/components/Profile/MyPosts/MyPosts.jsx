@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Box, TextField, Button, Stack, Divider } from '@mui/material'
 import SendIcon from '@mui/icons-material/Send'
-import { addPost } from '../../redux/profileSlice'
+import { addPost } from '../../../redux/profileSlice'
 
 const MyPosts = ({ postsList, dispatch }) => {
 
