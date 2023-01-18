@@ -9,7 +9,7 @@ import TwitterIcon from '@mui/icons-material/Twitter'
 import PublicIcon from '@mui/icons-material/Public'
 import YouTubeIcon from '@mui/icons-material/YouTube'
 import LinkIcon from '@mui/icons-material/Link'
-import VkIcon from './../../../img/VkIcon'
+import VkIcon from '../../UI/VkIcon'
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'
 
 const ProfileInfo = ({ profile }) => {
@@ -69,11 +69,11 @@ const ProfileInfo = ({ profile }) => {
               <List dense>
                 {github ? <ContactLink title={github} icon={<GitHubIcon />} /> : null}
                 {vk ? <ContactLink title={vk} icon={<VkIcon />} /> : null}
-                {facebook ? <ContactLink title={facebook} icon={<FacebookIcon />} /> : null}
-                {instagram ? <ContactLink title={instagram} icon={<InstagramIcon />} /> : null}
-                {twitter ? <ContactLink title={twitter} icon={<TwitterIcon />} /> : null}
+                {facebook ? <ContactLink title={facebook} icon={<FacebookIcon color='primary'/>} /> : null}
+                {instagram ? <ContactLink title={instagram} icon={<InstagramIcon color='warning'/>} /> : null}
+                {twitter ? <ContactLink title={twitter} icon={<TwitterIcon color='info'/>} /> : null}
                 {website ? <ContactLink title={website} icon={<PublicIcon />} /> : null}
-                {youtube ? <ContactLink title={youtube} icon={<YouTubeIcon />} /> : null}
+                {youtube ? <ContactLink title={youtube} icon={<YouTubeIcon color='error'/>} /> : null}
                 {mainLink ? <ContactLink title={mainLink} icon={<LinkIcon />} /> : null}
               </List>
             </Box>
