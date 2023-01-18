@@ -6,6 +6,7 @@ import { BASE_URL } from './../API/API-config'
 import { toggleIsFetching } from './../../redux/allUsersSlice'
 import { setProfile } from '../../redux/profileSlice'
 import Loader from './../UI/Loader/Loader'
+import withRouter from '../../router/withRouter'
 
 const ProfileContainer = () => {
   const dispatch = useDispatch()
@@ -22,13 +23,9 @@ const ProfileContainer = () => {
 
   return (
     <>
-      {
-        !profile
-          ? <Loader />
-          : <Profile profile={profile} />
-      }
+      {!profile ? <Loader /> : <Profile profile={profile} />}
     </>
   )
 }
 
-export default ProfileContainer
+export default withRouter(ProfileContainer) 
