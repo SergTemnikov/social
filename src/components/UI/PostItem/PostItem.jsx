@@ -5,10 +5,10 @@ import ThumbDownIcon from '@mui/icons-material/ThumbDown'
 
 const PostItem = ({ text, likes, dislikes }) => {
   return (
-    <Card sx={{margin: '10px 0 10px 0', backgroundColor: '#e6f2ff'}}>
+    <Card sx={{margin: '10px 0 10px 0'}}>
       <Box sx={{ marginTop: '5px', padding: '5px' }} >
         <Typography variant='p' sx={{ marginBottom: '5px' }}>{text}</Typography>
-        <Box sx={{display: 'flex'}}>
+        <Box sx={{display: 'flex', justifyContent: 'flex-end'}}>
           <Box sx={{ display: 'flex', alignContent: 'center' }}>
             {likes} <ThumbUpIcon sx={{ marginLeft: '5px' }} color='success' />
           </Box>

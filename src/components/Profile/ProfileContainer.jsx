@@ -15,7 +15,7 @@ const ProfileContainer = () => {
 
   useEffect(() => {
     dispatch(toggleIsFetching(true))
-    axios.get(`${BASE_URL}/profile/2`).then(res => {
+    axios.get(`${BASE_URL}/profile/12612`).then(res => {
       dispatch(toggleIsFetching(false))
       dispatch(setProfile(res.data))
     })
