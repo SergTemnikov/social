@@ -1,49 +1,16 @@
-import React, { useEffect } from 'react'
-import axios from 'axios'
-import { BASE_URL } from '../API/API-config'
-import { useDispatch, useSelector } from 'react-redux'
-import { setCurrentPage, setTotalUsersCount, toggleIsFetching } from '../../redux/allUsersSlice'
+import React from 'react'
 import { List, Pagination, Stack } from '@mui/material'
-import { follow, unfollow, setAllUsers } from '../../redux/allUsersSlice'
 import UserItem from '../UI/UserItem/UserItem'
 import Loader from './../UI/Loader/Loader'
 
-const Users = () => {
-  const pageSize = useSelector(state => state.allUsers.pageSize)
-  const totalUsersCount = useSelector(state => state.allUsers.totalUsersCount)
-  const currentPage = useSelector(state => state.allUsers.currentPage)
-  const users = useSelector(state => state.allUsers.allUsers)
-  const isFetching = useSelector(state => state.allUsers.isFetching)
-  const dispatch = useDispatch()
-
-  const followUser = (userId) => {
-    dispatch(follow(userId))
-  }
-
-  const unfollowUser = (userId) => {
-    dispatch(unfollow(userId))
-  }
-
-  const onPageChanged = (_, value) => {
-    axios.get(`${BASE_URL}/users?page=${value}&count=${pageSize}`)
-      .then(res => {
-        dispatch(setAllUsers(res.data.items))
-      })
-    dispatch(setCurrentPage(value))
-  }
-
-  useEffect(
-    () => {
-      if (users.length === 0) {
-        dispatch(toggleIsFetching(true))
-        axios.get(`${BASE_URL}/users?page=${currentPage}&count=${pageSize}`)
-          .then(res => {
-            dispatch(toggleIsFetching(false))
-            dispatch(setAllUsers(res.data.items))
-            dispatch(setTotalUsersCount(res.data.totalCount))
-          })
-      }
-    }, [currentPage])
+const Users = (props) => {
+  const { users,
+    totalUsersCount,
+    currentPage,
+    isFetching,
+    followUser,
+    unfollowUser,
+    onPageChanged } = props
 
   return (
     <>
