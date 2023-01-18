@@ -4,7 +4,8 @@ const initialState = {
   allUsers: [],
   pageSize: 7,
   totalUsersCount: 0,
-  currentPage: 1
+  currentPage: 1,
+  isFetching: false
 }
 
 const allUsersSlice = createSlice({
@@ -32,32 +33,27 @@ const allUsersSlice = createSlice({
       }
     },
     setAllUsers: (state, action) => {
-      return {
-        ...state,
-        allUsers: [...action.payload]
-      }
+      return { ...state, allUsers: [...action.payload] }
     },
     setTotalUsersCount: (state, action) => {
-      return {
-        ...state,
-        totalUsersCount: action.payload
-      }
+      return { ...state, totalUsersCount: action.payload }
     },
     setCurrentPage: (state, action) => {
-      return {
-        ...state,
-        currentPage: action.payload
-      }
+      return { ...state, currentPage: action.payload }
+    },
+    toggleIsFetching: (state, action) => {
+      return { ...state, isFetching: action.payload }
     },
     default: (state) => { return state }
   }
 })
 
-export const { 
-  follow, 
-  unfollow, 
-  setAllUsers, 
-  setCurrentPage, 
-  setTotalUsersCount } = allUsersSlice.actions
+export const {
+  follow,
+  unfollow,
+  setAllUsers,
+  setCurrentPage,
+  setTotalUsersCount,
+  toggleIsFetching } = allUsersSlice.actions
 
 export default allUsersSlice.reducer
