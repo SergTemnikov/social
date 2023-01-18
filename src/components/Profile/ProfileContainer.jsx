@@ -18,7 +18,7 @@ const ProfileContainer = () => {
       dispatch(toggleIsFetching(false))
       dispatch(setProfile(res.data))
     })
-  })
+  }, [dispatch])
 
   return (
     <>
